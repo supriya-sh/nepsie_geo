@@ -1,0 +1,26 @@
+.mainheading{
+    color: brown;
+    font-family:fantasy;
+    font-weight:lighter;
+    text-align: center;
+    background-color: rgb(238, 189, 133);
+    display: flex;
+    align-items: center;
+    padding: 2px;
+
+}
+.title{
+    flex: 1;
+    text-align: center;
+}
+.hamburger {
+    font-size: 25px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: brown;
+}
+.options {
+    display: none;
+    text-align: right;
+}
