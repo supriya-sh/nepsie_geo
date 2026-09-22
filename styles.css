@@ -1,12 +1,16 @@
+body{
+    background-image: radial-gradient(#E8F3F8, #F4F1DE);
+}
 .mainheading{
-    color: brown;
-    font-family:fantasy;
-    font-weight:lighter;
+    color: #263238;
+    font-family:'Poppins', sans-serif;
+    font-weight:bold;
     text-align: center;
-    background-color: rgb(238, 189, 133);
+    background-color: #DDEBF0;
     display: flex;
     align-items: center;
     padding: 2px;
+    position: relative;
 
 }
 .title{
@@ -18,9 +22,55 @@
     background: none;
     border: none;
     cursor: pointer;
-    color: brown;
+    color: #263238;
+}
+.hamburger:hover{
+    transform: scale(1.2);
+    color: #236354;
 }
 .options {
     display: none;
-    text-align: right;
+    position: absolute;
+    right: 20px;
+    top: 60px;
+    background-color: rgba(201, 223, 218, 0.85);
+    backdrop-filter: blur(10px);
+    width: 260px;
+    min-height: 500px;
+    z-index: 1000;
+}
+.options.show {
+    display: block;
+}
+.options ul{
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    align-items: flex-end;
+}
+.options li{
+    margin: 20px;;
+    border: 1px solid black;
+    padding: 2%;
+    width: 200px;
+    font-size: 18px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+}
+.options li:hover{
+    transform: scale(1.1)
+}
+.optfortemp{
+    cursor: pointer;
+}
+.cursy.manual{
+    border: 2px solid black;
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+}
+.cursy{
+    cursor: pointer;
+}
+.cursy:hover{
+    text-decoration: underline;
 }

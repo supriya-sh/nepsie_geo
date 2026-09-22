@@ -9,13 +9,15 @@
         </p>
         <button class="hamburger" onclick="toggleMenu()">☰</button>
     </div>
-    <div class="options">
+    <div class="options" id="opt">
         <ul>
             <li>Search <input type="text" placeholder="⌕ Type here..."></li>
-            <li>Temperature units: <label class="tempchoice"><input type="radio" name="temp">°C</label><label class="tempchoice"><input type="radio" name="temp">°F</label></li>
-            <li>Recent search</li>
-            <li>About: Manual</li>
+            <li>Temperature units: <br><label class="tempchoice"><input type="radio" name="temp" checked>°C</label><label class="tempchoice"><input type="radio" name="temp">°F</label></li>
+            <li class="cursy">Recent search</li>
+            <li class="cursy manual">About: Manual</li>
         </ul>
     </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
