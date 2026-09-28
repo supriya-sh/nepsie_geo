@@ -1,3 +1,4 @@
+let currentMarker;
 function toggleMenu() {
     document.getElementById("opt").classList.toggle("show");
 }
@@ -10,8 +11,19 @@ const map = L.map('map', {
     maxBounds: nepalBounds,
     maxBoundsViscosity: 1.0, // Prevents panning outside Nepal
     minZoom: 7,
-    maxZoom: 15
+    maxZoom: 13
 }).setView([28.3949, 84.1240], 6.5); // Centered on Nepal at zoom level 7
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '© OpenStreetMap contributors'
 }).addTo(map);
+map.on('click', onMapClick);
+
+//clicking the map
+function onMapClick(e){   
+    let lat=e.latlng.lat;
+    let long=e.latlng.lng;
+    if (currentMarker){ 
+        map.removeLayer(currentMarker); 
+    }
+    currentMarker = L.marker([lat,long]).addTo(map);
+}
