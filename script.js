@@ -40,7 +40,7 @@ function getWeather(latitude, longitude){
     fetch(url)
     .then(response=>response.json())
     .then(data=>{
-        let weather_now= data.current_weather.temperature;
+        weather_now= data.current_weather.temperature;
         console.log("Weather: ", weather_now);
         document.getElementById("temps").innerHTML= weather_now;
         backgrounds(weather_now);
@@ -52,7 +52,11 @@ function getWeather(latitude, longitude){
 
 function fahreinheityy(){
     let weather_now_fahrein= (weather_now*1.8)+32;
-    document.getElementById("temps").innerHTML = weather_now_fahrein.toFixed(2);//to fixed gives 2 decimal places
+    let rounded_off= weather_now_fahrein.toFixed(1);//to fixed gives 2 decimal places
+    document.getElementById("temps").innerHTML = rounded_off;
+    document.getElementById("fahdegrees").innerHTML= "°F";
+    if (weather_now === undefined) 
+        return;
 }
 
 //clicking the map
@@ -66,4 +70,11 @@ function onMapClick(e){
     currentMarker = L.marker([lat,long]).addTo(map);
     console.log("lat, long: ", lat,long);//tester
     getWeather(lat, long);
+}
+
+function celciusssy(){
+    document.getElementById("temps").innerHTML =weather_now;
+    document.getElementById("fahdegrees").innerHTML= "°C";
+    if (weather_now === undefined) 
+        return;
 }
