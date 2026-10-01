@@ -106,7 +106,7 @@ body{
     bottom: 80px;
     right: 70px;
     font-family: 'Times New Roman', Times, serif;
-    font-size: 60px;
+    font-size: 80px;
 
 }
 #temps{
@@ -114,4 +114,13 @@ body{
 }
 body.cold{
     background-image: url(cold.jpg);
+}
+body.pleasant{
+    background-image: url(pleasant.jpg);
+}
+body.warm{
+    background-image: url(warm.jpg);
+}
+body.hot{
+    background-image: url(hot.jpg);
 }

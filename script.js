@@ -22,10 +22,10 @@ map.on('click', onMapClick);
 
 //to change background according to weather
 function backgrounds(degrees){
-    if (degrees<10){
+    if (degrees<5){
         document.body.className="cold";
     }
-    else if(degrees>=10 && degrees<=22){
+    else if(degrees>=5 && degrees<=22){
         document.body.className="pleasant";
     }
     else if(degrees>=23 && degrees<=30){
