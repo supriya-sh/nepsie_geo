@@ -1,4 +1,4 @@
-let currentMarker;
+let pointer_map;
 let weather_now;
 function toggleMenu() { //to open side bar when hamburger is clicked
     document.getElementById("opt").classList.toggle("show");
@@ -20,6 +20,7 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(map);
 map.on('click', onMapClick);
 
+//to change background according to weather
 function backgrounds(degrees){
     if (degrees<10){
         document.body.className="cold";
@@ -63,11 +64,11 @@ function fahreinheityy(){
 function onMapClick(e){   
     let lat=e.latlng.lat;
     let long=e.latlng.lng;
-    if (currentMarker){ 
-        map.removeLayer(currentMarker); 
+    if (pointer_map){ 
+        map.removeLayer(pointer_map); 
     }
 
-    currentMarker = L.marker([lat,long]).addTo(map);
+    pointer_map = L.marker([lat,long]).addTo(map);
     console.log("lat, long: ", lat,long);//tester
     getWeather(lat, long);
 }
