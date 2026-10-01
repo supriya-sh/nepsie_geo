@@ -12,15 +12,18 @@
         <button class="hamburger" onclick="toggleMenu()">☰</button>
     </div>
     <div class="mapbox">
-        <div id="map"></div>
+        <div id="map" onclick="toggleMap()"></div>
     </div>
     <div class="options" id="opt">
         <ul>
             <li>Search <input type="text" placeholder="⌕ Type here..."></li>
             <li class="cursy">Recent search</li>
-            <li>Temperature units: <br><label class="tempchoice"><input type="radio" name="temp" checked>°C</label><label class="tempchoice"><input type="radio" name="temp">°F</label></li>
+            <li>Temperature units: <br><label class="tempchoice"><input type="radio" name="temp" checked>°C</label><label class="tempchoice"><input type="radio" name="temp" onclick="fahreinheityy()">°F</label></li>
             <li class="cursy manual">About: How It Works! </li>
         </ul>
+    </div>
+    <div class="weathertab" id="infotab">
+        <span><h1 id="temps"></h1>℃</span>
     </div>
     <p class="copyright">© Supriya Enterprises 2026</p>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
