@@ -17,14 +17,14 @@
     <div class="options" id="opt">
         <ul>
             <li>Temperature units: <br><label class="tempchoice"><input type="radio" name="temp" checked onclick="celciusssy()">°C</label><label class="tempchoice"><input type="radio" name="temp" onclick="fahreinheityy()">°F</label></li>
-            <li class="cursy manual">About: How It Works! </li>
+            <li class="cursy manual" onclick="howitworks()">About: How It Works! </li>
+            <li id="about">Just click anywhere on the map of Nepal to drop a pin, and the app instantly pulls up the real-time temperature, the area's name, while dynamically swapping the entire background image to match the weather vibe, whether it's cold, pleasant, warm, or scorching hot. If you want to change units, just hit the hamburger menu icon (☰) in the top right to open the options panel and toggle effortlessly between °C and °F on the fly.</li>
         </ul>
     </div>
-    
+
     <div class="weathertab" id="infotab">
         <span><h1 id="temps"></h1><span id="fahdegrees">℃</span></span>
         <div id="location">Click on the map to choose a location</div>
-        <div id="wiki"></div>
     </div>
     </div><p class="copyright">© Supriya Enterprises 2026</p>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>

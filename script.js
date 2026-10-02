@@ -74,10 +74,10 @@ async function places_name(lat, lng) {
         console.error("Geocoding Error: ", err);
         document.getElementById("location").innerHTML = "Selected Point";
     }
-    if (placeName !== "Unknown Location") {
-        getWikiInfo(placeName);
+    if (chosen_place !== "Unknown Location") {
+        getWikiInfo(chosen_place);
     } else {
-        document.getElementById("wiki-info").innerHTML = "";
+        document.getElementById("wiki").innerHTML = "";
 }
 }
 //clicking the map
@@ -87,29 +87,17 @@ function onMapClick(e){
     if (pointer_map){ 
         map.removeLayer(pointer_map); 
     }
-
     pointer_map = L.marker([lat,long]).addTo(map);
     console.log("lat, long: ", lat,long);//tester
     places_weather(lat, long);
     places_name(lat, long);
 }
-
-async function wikipedia(chosen_place) {
-    let query = encodeURIComponent(chosen_place);
-    let url = `https://en.wikipedia.org/api/rest_v1/page/summary/${query}`;
-    try {
-        let response = await fetch(url);
-        if (!response.ok) throw new Error("No wiki summary found");
-        let data = await response.json(); document.getElementById("wiki-info").innerHTML = data.extract || "No description available for this place.";
-    } catch (err) {
-        console.warn("Wiki Error: ", err);
-        document.getElementById("wiki-info").innerHTML = "No quick Wikipedia summary found for this location.";
-    }
-}
-
 function celciusssy(){
     document.getElementById("temps").innerHTML =weather_now;
     document.getElementById("fahdegrees").innerHTML= "°C";
     if (weather_now === undefined) 
         return;
+}
+function howitworks(){
+    document.getElementById("about").classList.toggle("show");
 }

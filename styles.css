@@ -119,6 +119,22 @@ body{
 #location{
     font-size: 40px;
 }
+#about {
+    display: none;
+    font-size: 13px;
+    line-height: 1.4;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 8px;
+    margin-top: 5px;
+    color: #263238;
+}
+#about.show {
+    display: block;
+}
+#about:hover{
+    cursor:default;
+}
 .weathertab{
     position: absolute;
     right: 70px;
