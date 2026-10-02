@@ -16,16 +16,17 @@
     </div>
     <div class="options" id="opt">
         <ul>
-            <li>Search <input type="text" placeholder="⌕ Type here..."></li>
-            <li class="cursy">Recent search</li>
             <li>Temperature units: <br><label class="tempchoice"><input type="radio" name="temp" checked onclick="celciusssy()">°C</label><label class="tempchoice"><input type="radio" name="temp" onclick="fahreinheityy()">°F</label></li>
             <li class="cursy manual">About: How It Works! </li>
         </ul>
     </div>
+    
     <div class="weathertab" id="infotab">
         <span><h1 id="temps"></h1><span id="fahdegrees">℃</span></span>
+        <div id="location">Click on the map to choose a location</div>
+        <div id="wiki"></div>
     </div>
-    <p class="copyright">© Supriya Enterprises 2026</p>
+    </div><p class="copyright">© Supriya Enterprises 2026</p>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
     <script src="script.js"></script>
 </body>

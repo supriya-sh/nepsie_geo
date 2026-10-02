@@ -36,7 +36,7 @@ function backgrounds(degrees){
     }
 }
 
-function getWeather(latitude, longitude){
+function places_weather(latitude, longitude){
     let url=`https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true`;
     fetch(url)
     .then(response=>response.json())
@@ -60,6 +60,26 @@ function fahreinheityy(){
         return;
 }
 
+//place's name found by latitude and longitude coordinates
+async function places_name(lat, lng) {
+    let url = `https://nominatim.openstreetmap.org/reverse?lat=${lat}&lon=${lng}&format=json`;
+    
+    try {
+        let response = await fetch(url);
+        let data = await response.json();
+        let address = data.address;
+        let chosen_place = address.city || address.town || address.village || address.county || address.state || "Unknown Location";
+        document.getElementById("location").innerHTML = chosen_place;
+    } catch (err) {
+        console.error("Geocoding Error: ", err);
+        document.getElementById("location").innerHTML = "Selected Point";
+    }
+    if (placeName !== "Unknown Location") {
+        getWikiInfo(placeName);
+    } else {
+        document.getElementById("wiki-info").innerHTML = "";
+}
+}
 //clicking the map
 function onMapClick(e){   
     let lat=e.latlng.lat;
@@ -70,7 +90,21 @@ function onMapClick(e){
 
     pointer_map = L.marker([lat,long]).addTo(map);
     console.log("lat, long: ", lat,long);//tester
-    getWeather(lat, long);
+    places_weather(lat, long);
+    places_name(lat, long);
+}
+
+async function wikipedia(chosen_place) {
+    let query = encodeURIComponent(chosen_place);
+    let url = `https://en.wikipedia.org/api/rest_v1/page/summary/${query}`;
+    try {
+        let response = await fetch(url);
+        if (!response.ok) throw new Error("No wiki summary found");
+        let data = await response.json(); document.getElementById("wiki-info").innerHTML = data.extract || "No description available for this place.";
+    } catch (err) {
+        console.warn("Wiki Error: ", err);
+        document.getElementById("wiki-info").innerHTML = "No quick Wikipedia summary found for this location.";
+    }
 }
 
 function celciusssy(){
