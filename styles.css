@@ -43,6 +43,7 @@ body{
 }
 #map {
     height: 450px;
+    width: 100%;
     width: 650px;
     border: 2px solid rgb(24, 123, 115);
     cursor: pointer;
@@ -103,8 +104,15 @@ body{
 .cursy:hover{
     text-decoration: underline;
 }
+.everything{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+}
 #wiki {
-    position: fixed;
+    position: relative;
     top: 270px;
     right: 70px;
     width: 250px;
@@ -136,8 +144,8 @@ body{
     cursor:default;
 }
 .weathertab{
-    position: absolute;
-    right: 70px;
+    position: relative;
+    right: 40px;
     top: 60px;
     padding: 2%;
     background-color: rgba(243, 247, 246, 0.85);
@@ -149,9 +157,6 @@ body{
     border-radius: 15%;
 }
 #infotab{
-    position: fixed;
-    top: 100px;
-    right: 70px;
     font-family: 'Times New Roman', Times, serif;
     font-size: 50px;
     z-index: 1000;
